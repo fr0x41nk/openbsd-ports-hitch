@@ -1,0 +1,10 @@
+--- src/configuration.c	Wed Aug  9 14:29:31 2023
++++ src/configuration.c.new	Thu Oct 30 23:00:32 2025
+@@ -8,7 +8,6 @@
+ 
+ #include <sys/types.h>
+ #include <sys/stat.h>
+-#include <sys/sysinfo.h>
+ 
+ #include <stdio.h>
+ #include <string.h>

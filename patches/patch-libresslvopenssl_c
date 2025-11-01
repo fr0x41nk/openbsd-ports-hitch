@@ -1,0 +1,42 @@
+--- src/hitch.c	Wed Aug  9 14:29:31 2023
++++ src/hitch.c	Thu Oct 30 23:46:00 2025
+@@ -949,7 +949,11 @@
+ 		return (1);
+ 	}
+ 
+-	SSL_CTX_set1_verify_cert_store(ctx, vfy);
++#ifdef LIBRESSL_VERSION_NUMBER
++  SSL_CTX_set1_cert_store(ctx, vfy);
++#else
++  SSL_CTX_set1_verify_cert_store(ctx, vfy);
++#endif
+ 
+ #ifdef HAVE_X509_STORE_GET0_OBJECTS
+ 	objs = X509_STORE_get0_objects(vfy);
+@@ -1332,6 +1336,7 @@
+ 	SSL_load_error_strings();
+ 	OpenSSL_add_all_digests();
+ 
++#ifdef HAVE_OPENSSL_ENGINE
+ 	if (CONFIG->ENGINE) {
+ 		ENGINE *e = NULL;
+ 		ENGINE_load_builtin_engines();
+@@ -1352,6 +1357,7 @@
+ 			ENGINE_free(e);
+ 		}
+ 	}
++#endif
+ }
+ 
+ static void
+@@ -3992,10 +3998,6 @@
+ 					break;
+ 				}
+ 			} while (i == -1 && errno == EINTR);
+-
+-			if (wu->type == WORKER_GEN)
+-				(void)close(c->pfd);
+-
+ 		}
+ 	}
+ }
