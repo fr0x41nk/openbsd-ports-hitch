@@ -1,0 +1,5 @@
+cp /usr/local/share/doc/hitch/hitch.conf.example /etc/hitch.config
+
+And edit the config file, remember to tune the config file examples user and group from hitch to _hitch 
+
+Look at https://github.com/varnish/hitch/tree/master/docs for more information

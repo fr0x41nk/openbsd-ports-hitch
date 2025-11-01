@@ -1,0 +1,17 @@
+@newgroup _hitch:902
+@newuser _hitch:902:_hitch::Hitch unprivileged user:/var/hitch:/sbin/nologin
+@rcscript ${RCDIR}/hitch
+@mode 750
+@owner _hitch
+@group _hitch
+@mode
+@owner
+@group
+@man man/man5/hitch.conf.5
+@man man/man8/hitch.8
+@bin sbin/hitch
+@sample ${LOCALSTATEDIR}/hitch/
+share/doc/hitch/
+share/doc/hitch/CHANGES.rst
+share/doc/hitch/README.md
+share/doc/hitch/hitch.conf.example

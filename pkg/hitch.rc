@@ -1,0 +1,12 @@
+#!/bin/ksh
+
+daemon="${TRUEPREFIX}/sbin/hitch"
+daemon_user="_hitch"
+daemon_flags="--config ${SYSCONFDIR}/hitch.config"
+daemon_execdir="${LOCALSTATEDIR}/hitch"
+
+. ${RCDIR}/rc.subr
+
+rc_bg=YES
+
+rc_cmd $1
