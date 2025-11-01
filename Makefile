@@ -7,7 +7,7 @@ GH_PROJECT =    hitch
 GH_TAGNAME =    1.8.0
 
 HOMEPAGE =      https://www.hitch-tls.net/
-MAINTAINER =    Frank Solli <frank.solli@icloud.com>
+MAINTAINER =    Frank Solli <frank_solli@icloud.com>
 
 AUTORECONF = autoreconf -i 
 CONFIGURE_STYLE = autoreconf
